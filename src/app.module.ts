@@ -1,9 +1,19 @@
 import { Module } from '@nestjs/common';
 import { ActivityModule } from './activity/activity.module';
 import { ProgramModule } from './program/program.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [ActivityModule, ProgramModule],
+  imports: [
+      TypeOrmModule.forRoot({
+        type: 'mysql',
+        database: '',
+        entities: [__dirname + '/**/*.entity.ts'],
+        // migrations: ''
+      }),
+      ActivityModule,
+      ProgramModule
+    ],
   controllers: [],
   providers: [],
 })

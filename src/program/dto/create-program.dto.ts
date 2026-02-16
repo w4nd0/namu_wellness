@@ -17,15 +17,15 @@ export class CreateProgramDto {
     description: string
 
     @IsEnum(Category)
-    Category: Category
+    category: Category
     
     @IsNumber()
-    duration_weeks: number
+    durationWeeks: number
     
     @IsDateString()
-    created_at: string
+    createdAt: string
 
     @IsDateString()
-    updated_at: string
+    updatedAt: string
 }
 
