@@ -1,16 +1,17 @@
-import { IsUUID, IsString } from "class-validator"
+import { IsNumber, IsString, IsDateString, IsObject } from "class-validator"
+import { Activity } from "src/activity/entities/activity.entity"
 
 export class CreateParticipationDto {
-    @IsUUID()
-    id: string
+    @IsNumber()
+    id: number
     
     @IsString()
     userName: string
     
-    @IsUUID()    
-    activityId: string
+    @IsObject()    
+    activity: Activity
 
-    @IsString()  
+    @IsDateString()  
     completedAt: string
 
     @IsString()  
