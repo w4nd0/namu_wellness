@@ -1,21 +1,26 @@
-import { PrimaryColumn, ForeignKey, Column } from "typeorm"
+import { Program } from "src/program/entities/program.entity"
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm"
 
+@Entity('activities')
 export class Activity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: string
     
-    //@ForeignKey()    
-    //program_id: string
+    @OneToOne(() => Program)    
+    program: Program
     
+    @JoinColumn({name: 'program_id'})
+    programId: string
+
     @Column()    
     title: string
     
     @Column()    
     description: string
     
-    @Column()
-    day_of_week: string
+    @Column({name: 'day_of_week'})
+    dayOfWeek: string
     
-    @Column()
-    duration_minutes: number
+    @Column({name: 'duration_minutes'})
+    durationMinutes: number
 }

@@ -1,7 +1,8 @@
-import { Column, PrimaryColumn } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
+@Entity('programs')
 export class Program {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: string
 
     @Column()
@@ -13,12 +14,12 @@ export class Program {
     @Column()
     category: string
     
-    @Column()
-    duration_weeks: number
+    @Column({name: 'duration_weeks'})
+    durationWeeks: number
     
-    @Column()
-    created_at: string
+    @Column({name: 'created_at'})
+    createdAt: string
 
-    @Column()
-    updated_at: string
+    @Column({name: 'updated_at'})
+    updatedAt: string
 }

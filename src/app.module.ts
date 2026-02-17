@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ActivityModule } from './activity/activity.module';
 import { ProgramModule } from './program/program.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ParticipationModule } from './participation/participation.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         // migrations: ''
       }),
       ActivityModule,
-      ProgramModule
+      ProgramModule,
+      ParticipationModule
     ],
   controllers: [],
   providers: [],
