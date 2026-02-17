@@ -3,7 +3,7 @@ import { ParticipationService } from './participation.service';
 import { CreateParticipationDto } from './dto/create-participation.dto';
 import { UpdateParticipationDto } from './dto/update-participation.dto';
 
-@Controller('participation')
+@Controller('participations')
 export class ParticipationController {
   constructor(private readonly participationService: ParticipationService) {}
 
