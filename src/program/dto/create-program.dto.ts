@@ -1,14 +1,14 @@
-import { IsDateString, IsEnum, IsNumber, IsString, IsUUID } from "class-validator"
+import { IsDateString, IsEnum, IsNumber, IsString } from "class-validator"
 
-enum Category {
+export enum Category {
     MEDITACAO = 'meditação',
     EXERCICIO = 'exercício',
     NUTRICAO = 'nutrição'
 }
 
 export class CreateProgramDto {
-    @IsUUID()
-    id: string
+    @IsNumber()
+    id: number
 
     @IsString()
     name: string

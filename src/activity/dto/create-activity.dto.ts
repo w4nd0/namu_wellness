@@ -1,11 +1,11 @@
-import { IsUUID, IsString, IsNumber } from "class-validator"
+import { IsString, IsNumber } from "class-validator"
 
 export class CreateActivityDto {
-    @IsUUID()
-    id: string
+    @IsNumber()
+    id: number
     
-    @IsUUID()    
-    programId: string
+    @IsNumber()    
+    programId: number
     
     @IsString()    
     title: string

@@ -4,13 +4,13 @@ import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "ty
 @Entity('activities')
 export class Activity {
     @PrimaryGeneratedColumn()
-    id: string
+    id: number
     
     @OneToOne(() => Program)    
     program: Program
     
     @JoinColumn({name: 'program_id'})
-    programId: string
+    programId: number
 
     @Column()    
     title: string
