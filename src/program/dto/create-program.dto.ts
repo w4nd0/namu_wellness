@@ -1,15 +1,12 @@
 import { IsDateString, IsEnum, IsNumber, IsString } from "class-validator"
 
 export enum Category {
-    MEDITACAO = 'meditação',
-    EXERCICIO = 'exercício',
-    NUTRICAO = 'nutrição'
+    MEDITACAO = 'meditacao',
+    EXERCICIO = 'exercicio',
+    NUTRICAO = 'nutricao'
 }
 
 export class CreateProgramDto {
-    @IsNumber()
-    id: number
-
     @IsString()
     name: string
 
@@ -20,12 +17,5 @@ export class CreateProgramDto {
     category: Category
     
     @IsNumber()
-    durationWeeks: number
-    
-    @IsDateString()
-    createdAt: string
-
-    @IsDateString()
-    updatedAt: string
+    durationWeeks: number 
 }
-

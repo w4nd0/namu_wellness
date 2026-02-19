@@ -19,11 +19,5 @@ export class Program {
     category: Category
     
     @Column({name: 'duration_weeks'})
-    durationWeeks: number
-    
-    @Column({name: 'created_at'})
-    createdAt: string
-
-    @Column({name: 'updated_at'})
-    updatedAt: string
+    durationWeeks: number    
 }
