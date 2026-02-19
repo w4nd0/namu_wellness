@@ -1,9 +1,15 @@
-import { IsString, IsNumber } from "class-validator"
+import { IsString, IsNumber, IsEnum } from "class-validator"
 
-export class CreateActivityDto {
-    @IsNumber()
-    id: number
-    
+export enum DayOfWeek {
+	SEGUNDA = 'segunda',
+    TERCA = 'terÃ§a',
+    QUARTA = 'quarta',
+    QUINTA = 'quinta',
+    SEXTA = 'sexta',
+    SABADO = 'sÃ¡bado',
+    DOMINDO = 'domingo'
+}
+export class CreateActivityDto {    
     @IsNumber()    
     programId: number
     
@@ -13,8 +19,8 @@ export class CreateActivityDto {
     @IsString()    
     description: string
     
-    @IsString()
-    dayOfWeek: string
+    @IsEnum(DayOfWeek)
+    dayOfWeek: DayOfWeek
     
     @IsNumber()
     durationMinutes: number

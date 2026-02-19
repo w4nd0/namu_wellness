@@ -1,5 +1,7 @@
+import { Participation } from "src/participation/entities/participation.entity"
 import { Program } from "src/program/entities/program.entity"
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany } from "typeorm"
+import { DayOfWeek } from "../dto/create-activity.dto"
 
 @Entity('activities')
 export class Activity {
@@ -7,9 +9,10 @@ export class Activity {
     id: number
     
     @OneToOne(() => Program)    
-    program: Program
+    program: Program  
     
-    @JoinColumn({name: 'program_id'})
+    @Column()    
+    @JoinColumn({name: "program_id"})
     programId: number
 
     @Column()    
@@ -18,9 +21,15 @@ export class Activity {
     @Column()    
     description: string
     
-    @Column({name: 'day_of_week'})
-    dayOfWeek: string
+    @Column({
+        type: 'enum',
+        enum: DayOfWeek 
+    })
+    dayOfWeek: DayOfWeek
     
     @Column({name: 'duration_minutes'})
     durationMinutes: number
+
+    @OneToMany(() => Participation, (participation) => participation.activity)
+    participation: Participation
 }
