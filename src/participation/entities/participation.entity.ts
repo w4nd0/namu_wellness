@@ -9,10 +9,11 @@ export class Participation {
     @Column({name: 'user_name'})
     userName: string
 
-    @ManyToOne(() => Activity)  
-    activity: Activity
+    @ManyToOne(() => Activity, (activity) => activity.participation)  
+    activity: Activity  
 
-    @Column({name: 'activity_id'})
+    @Column()    
+    @JoinColumn({name: "activity_id"})
     activityId: number
 
     @Column({name: 'completed_at'})
