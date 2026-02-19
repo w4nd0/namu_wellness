@@ -2,11 +2,11 @@ import { IsString, IsNumber, IsEnum } from "class-validator"
 
 export enum DayOfWeek {
 	SEGUNDA = 'segunda',
-    TERCA = 'terÃ§a',
+    TERCA = 'terca',
     QUARTA = 'quarta',
     QUINTA = 'quinta',
     SEXTA = 'sexta',
-    SABADO = 'sÃ¡bado',
+    SABADO = 'sabado',
     DOMINDO = 'domingo'
 }
 export class CreateActivityDto {    
