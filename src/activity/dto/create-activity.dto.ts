@@ -1,4 +1,5 @@
 import { IsString, IsNumber, IsEnum } from "class-validator"
+import { ApiProperty } from '@nestjs/swagger';
 
 export enum DayOfWeek {
 	SEGUNDA = 'segunda',
@@ -10,18 +11,23 @@ export enum DayOfWeek {
     DOMINGO = 'domingo'
 }
 export class CreateActivityDto {    
+    @ApiProperty()
     @IsNumber()    
     programId: number
     
+    @ApiProperty()
     @IsString()    
     title: string
     
+    @ApiProperty()
     @IsString()    
     description: string
     
+    @ApiProperty({enum: DayOfWeek})
     @IsEnum(DayOfWeek)
     dayOfWeek: DayOfWeek
     
+    @ApiProperty()
     @IsNumber()
     durationMinutes: number
 }

@@ -1,16 +1,20 @@
-import { IsNumber, IsString, IsDateString, IsObject } from "class-validator"
-import { Activity } from "src/activity/entities/activity.entity"
+import { IsNumber, IsString } from "class-validator"
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateParticipationDto {    
+    @ApiProperty()
     @IsString()
     userName: string
     
+    @ApiProperty()
     @IsNumber()    
     activityId: number
 
+    @ApiProperty()
     @IsString()  
     completedAt: string
 
+    @ApiProperty()
     @IsString()  
     notes: string
 }

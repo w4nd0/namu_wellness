@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ActivityService } from './activity.service';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('programs{/:programId}/activities')
 export class ActivityController {
@@ -28,6 +29,7 @@ export class ActivityController {
   }
 }
 
+@ApiTags('Program')
 @Controller('programs/:programId/summary')
 export class SummaryController {
   constructor(private readonly activityService: ActivityService) {}
