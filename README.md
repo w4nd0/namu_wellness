@@ -10,16 +10,33 @@ Para iniciar o projeto na sua máquina, é necessário que sua máquina tenha in
 #### Instalação
 
 Para instalar as dependências do projeto basta rodar o seguinte comando:
+
 ```
 npm install
 ```
+
+Também é preciso criar um `.env` com as informações do banco de dados, seguindo o exemplo contido no `.env.example`.
 
 Posteriormente suba o contêiner no Docker, com o comando: 
 
 ```
 docker compose up -d
 ```
-Com esse comando o banco de dados juntamente com as tabelas serão criados,e com isso a aplicação já estará disponível para testes.
+
+Com isso a aplicação já estará disponível para ser executada.
+
+#### Executando
+Para rodar o serviço execute na linha de comando:
+
+```
+npm run start
+```
+
+E Para rodar os teste:
+
+```
+npm run test
+```
 
 #### Rotas
 É possível ver os endpoints da api na documentação em http://localhost:3000/api#/
