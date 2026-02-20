@@ -7,27 +7,25 @@ import { Program } from './program/entities/program.entity';
 import { Participation } from './participation/entities/participation.entity';
 import { Activity } from './activity/entities/activity.entity';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { Migration1771603303113 } from './_db/migrations/1771603303113-migration';
 
 @Module({
   imports: [
-      TypeOrmModule.forRoot({
-        type: 'mysql',
-        username: 'root',
-        password: '1234',
-        database: 'db',
-        port: 3306,
-        entities: [
-          Program,
-          Participation,
-          Activity
-        ],
-        namingStrategy: new SnakeNamingStrategy(),
-        // migrations: ''
-      }),
-      ActivityModule,
-      ProgramModule,
-      ParticipationModule
-    ],
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      username: 'root',
+      password: '1234',
+      database: 'db',
+      port: 3306,
+      entities: [Program, Participation, Activity],
+      namingStrategy: new SnakeNamingStrategy(),
+      synchronize: false,
+      migrations: [Migration1771603303113],
+    }),
+    ActivityModule,
+    ProgramModule,
+    ParticipationModule,
+  ],
   controllers: [],
   providers: [],
 })

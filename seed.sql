@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS programs (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   description TEXT,
-  category ENUM('meditação', 'exercício', 'nutrição') NOT NULL,
+  category ENUM('meditacao', 'exercicio', 'nutricao') NOT NULL,
   duration_weeks INT NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS activities (
   program_id INT NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  day_of_week ENUM('segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo') NOT NULL,
+  day_of_week ENUM('segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo') NOT NULL,
   duration_minutes INT NOT NULL,
   FOREIGN KEY (program_id) REFERENCES programs(id) ON DELETE CASCADE
 );
