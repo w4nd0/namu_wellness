@@ -31,6 +31,7 @@ export class Activity {
   @Column({
     type: 'enum',
     enum: DayOfWeek,
+    name: 'day-of-week',
   })
   dayOfWeek: DayOfWeek;
 
