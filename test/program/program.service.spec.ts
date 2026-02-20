@@ -21,6 +21,7 @@ describe('ProgramService', () => {
             findOneBy: jest.fn(),
             merge: jest.fn(),
             remove: jest.fn(),
+            save: jest.fn(),
           },
         },
       ],

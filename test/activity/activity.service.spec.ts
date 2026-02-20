@@ -24,6 +24,21 @@ describe('ActivityService', () => {
             findOneBy: jest.fn(),
             merge: jest.fn(),
             remove: jest.fn(),
+            createQueryBuilder: () => ({
+              where: jest.fn().mockReturnThis(),
+              getCount: jest.fn().mockReturnValue(1),
+              innerJoin: jest.fn().mockReturnThis(),
+              select: jest.fn().mockReturnThis(),
+              addSelect: jest.fn().mockReturnThis(),
+              groupBy: jest.fn().mockReturnThis(),
+              orderBy: jest.fn().mockReturnThis(),
+              getRawMany: jest.fn().mockReturnValue([
+                {
+                  user: 'user-test',
+                  totalParticipations: 1,
+                },
+              ]),
+            }),
           },
         },
       ],
@@ -112,6 +127,18 @@ describe('ActivityService', () => {
 
     expect(spyRepository).toHaveBeenCalled();
     expect(resp).toBeNull();
+  });
+
+  it('should find information related to a program id', async () => {
+    const spyRepository = jest.spyOn(repository, 'createQueryBuilder');
+
+    const report = await service.summary(1);
+
+    expect(spyRepository).toHaveBeenCalled();
+    expect(report.totalActivities).toBe(1);
+    expect(report.totalParticipations).toBe(1);
+    expect(report.mostActiveParticipants[0].user).toBe('user-test');
+    expect(report.mostActiveParticipants[0].totalParticipations).toBe(1);
   });
 });
 
