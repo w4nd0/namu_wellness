@@ -7,7 +7,7 @@ export enum DayOfWeek {
     QUINTA = 'quinta',
     SEXTA = 'sexta',
     SABADO = 'sabado',
-    DOMINDO = 'domingo'
+    DOMINGO = 'domingo'
 }
 export class CreateActivityDto {    
     @IsNumber()    

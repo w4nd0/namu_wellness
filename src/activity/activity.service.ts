@@ -26,9 +26,9 @@ export class ActivityService {
     
     if(!activity) return null
 
-    this.repository.merge(activity, updateActivityDto)    
+    const newActivity = this.repository.merge(activity, updateActivityDto)    
 
-    return this.repository.save(activity)
+    return this.repository.save(newActivity)
   }
 
   async remove(id: number) {
