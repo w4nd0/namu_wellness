@@ -3,7 +3,7 @@ import { ActivityService } from './activity.service';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
 
-@Controller('activities')
+@Controller('programs{/:programId}/activities')
 export class ActivityController {
   constructor(private readonly activityService: ActivityService) {}
 
@@ -13,15 +13,10 @@ export class ActivityController {
   }
 
   @Get()
-  findAll() {
-    return this.activityService.findAll();
+  findAll(@Param('programId') id: string) {
+    return this.activityService.findAll(+id);
   }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.activityService.findOne(+id);
-  }
-
+  
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateActivityDto: UpdateActivityDto) {
     return this.activityService.update(+id, updateActivityDto);
@@ -31,4 +26,15 @@ export class ActivityController {
   remove(@Param('id') id: string) {
     return this.activityService.remove(+id);
   }
+}
+
+@Controller('programs/:programId/summary')
+export class SummaryController {
+  constructor(private readonly activityService: ActivityService) {}
+
+  @Get()
+  async summary(@Param('programId') id: string) {
+    return this.activityService.summary(+id)
+  }
+
 }
