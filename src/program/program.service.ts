@@ -10,32 +10,32 @@ export class ProgramService {
   constructor(
     @InjectRepository(Program)
     private readonly repository: Repository<Program>,
-  ){}
+  ) {}
 
   create(createProgramDto: CreateProgramDto) {
-    const program = this.repository.create(createProgramDto)
-    return this.repository.save(program)
+    const program = this.repository.create(createProgramDto);
+    return this.repository.save(program);
   }
 
   findOne(id: number) {
-      return this.repository.findOneBy({ id })
+    return this.repository.findOneBy({ id });
   }
 
   async update(id: number, updateProgramDto: UpdateProgramDto) {
-    const program = await this.repository.findOneBy({ id })    
-    
-    if(!program) return null
+    const program = await this.repository.findOneBy({ id });
 
-    this.repository.merge(program, updateProgramDto)    
+    if (!program) return null;
 
-    return this.repository.save(program)
+    this.repository.merge(program, updateProgramDto);
+
+    return this.repository.save(program);
   }
 
   async remove(id: number) {
-    const program = await this.repository.findOneBy({ id })    
-    
-    if(!program) return null
+    const program = await this.repository.findOneBy({ id });
 
-    return this.repository.remove(program)
-  }   
+    if (!program) return null;
+
+    return this.repository.remove(program);
+  }
 }

@@ -5,7 +5,7 @@ import { Participation } from './entities/participation.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Participation])],   
+  imports: [TypeOrmModule.forFeature([Participation])],
   controllers: [ParticipationController],
   providers: [ParticipationService],
 })

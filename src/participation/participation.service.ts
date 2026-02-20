@@ -8,15 +8,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class ParticipationService {
   constructor(
     @InjectRepository(Participation)
-    private readonly repository: Repository<Participation>
-  ){}
+    private readonly repository: Repository<Participation>,
+  ) {}
 
   create(createParticipationDto: CreateParticipationDto) {
-    const participation = this.repository.create(createParticipationDto)
-    return this.repository.save(participation)
+    const participation = this.repository.create(createParticipationDto);
+    return this.repository.save(participation);
   }
 
   findOne(id: number) {
-     return this.repository.findOneBy({ id })
+    return this.repository.findOneBy({ id });
   }
 }
