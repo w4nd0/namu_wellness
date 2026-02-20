@@ -17,10 +17,6 @@ export class ProgramService {
     return this.repository.save(program)
   }
 
-  findAll() {
-    return this.repository.find()
-  }
-
   findOne(id: number) {
       return this.repository.findOneBy({ id })
   }

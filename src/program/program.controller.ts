@@ -12,11 +12,6 @@ export class ProgramController {
     return this.programService.create(createProgramDto);
   }
 
-  @Get()
-  findAll() {
-    return this.programService.findAll();
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.programService.findOne(+id);
